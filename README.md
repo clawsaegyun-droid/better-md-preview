@@ -18,3 +18,10 @@ The extension also binds the standard Markdown preview shortcut:
 
 - Windows/Linux: `Ctrl+K V`
 - macOS: `Cmd+K V`
+
+## Releases
+
+Releases are built by GitHub Actions. Push a semantic version tag such as
+`v0.1.4`, or run the `Release` workflow manually with a tag input. The workflow
+runs lint, packages the VSIX, creates `SHA256SUMS`, and publishes both files to
+the GitHub Release.
