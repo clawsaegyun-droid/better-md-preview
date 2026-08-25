@@ -1,0 +1,12 @@
+.vscode/**
+.git/**
+.github/**
+.gitignore
+*.vsix
+*.vsix.sha256
+node_modules/@vscode/vsce/**
+node_modules/vscode-vsce-sign/**
+node_modules/azure-devops-node-api/**
+node_modules/keytar/**
+node_modules/undici/**
+npm-debug.log

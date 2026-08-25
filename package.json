@@ -1,0 +1,91 @@
+{
+  "name": "better-md-preview",
+  "displayName": "Better MD Preview",
+  "description": "GitHub-style Markdown preview with a clickable heading legend.",
+  "version": "0.1.4",
+  "publisher": "openclaw-local",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/clawsaegyun-droid/better-md-preview.git"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:markdown",
+    "onCommand:betterMdPreview.openPreview",
+    "onCommand:betterMdPreview.openPreviewToSide"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "betterMdPreview.openPreview",
+        "title": "Open Preview",
+        "category": "Better MD Preview"
+      },
+      {
+        "command": "betterMdPreview.openPreviewToSide",
+        "title": "Open Preview to the Side",
+        "category": "Better MD Preview",
+        "icon": {
+          "light": "media/preview-green.svg",
+          "dark": "media/preview-green.svg"
+        }
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "betterMdPreview.openPreviewToSide",
+          "when": "resourceLangId == markdown",
+          "group": "navigation"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "betterMdPreview.openPreview",
+          "when": "resourceLangId == markdown",
+          "group": "navigation"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "betterMdPreview.openPreviewToSide",
+        "key": "ctrl+k v",
+        "mac": "cmd+k v",
+        "when": "editorLangId == markdown"
+      }
+    ],
+    "configuration": {
+      "title": "Better MD Preview",
+      "properties": {
+        "betterMdPreview.followEditorSelection": {
+          "type": "boolean",
+          "default": true,
+          "description": "Scroll the preview to the heading nearest the active editor selection."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "node --check src/extension.js",
+    "package": "vsce package",
+    "package:vsix": "vsce package"
+  },
+  "dependencies": {
+    "github-markdown-css": "^5.8.1",
+    "highlight.js": "^11.11.1",
+    "markdown-it": "^14.1.0",
+    "markdown-it-footnote": "^4.0.0",
+    "markdown-it-task-lists": "^2.1.1"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^3.6.0"
+  }
+}
